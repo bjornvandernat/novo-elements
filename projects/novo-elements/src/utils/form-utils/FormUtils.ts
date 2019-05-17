@@ -64,7 +64,7 @@ export class FormUtils {
     'Placement',
   ];
 
-  constructor(public labels: NovoLabelService, public optionsService: OptionsService) {}
+  constructor(public labels: NovoLabelService, public optionsService: OptionsService) { }
 
   toFormGroup(controls: Array<any>): NovoFormGroup {
     let group: any = {};
@@ -260,7 +260,10 @@ export class FormUtils {
         options: optionsConfig,
       };
     } else if (optionsConfig) {
-      controlConfig.config = optionsConfig;
+      controlConfig.config = {
+        ...controlConfig.config,
+        ...optionsConfig
+      };
     }
 
     if (type === 'year') {
