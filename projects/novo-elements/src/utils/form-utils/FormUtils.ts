@@ -261,7 +261,7 @@ export class FormUtils {
       };
     } else if (optionsConfig) {
       controlConfig.config = {
-        ...controlConfig.config,
+        ...controlConfig && controlConfig.config,
         ...optionsConfig
       };
     }
